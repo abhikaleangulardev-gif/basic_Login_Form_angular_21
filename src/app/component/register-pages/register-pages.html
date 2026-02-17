@@ -1,1 +1,23 @@
-<p>register-pages works!</p>
+<div class="container mt-4">
+    <h2>Register Page</h2>
+    <form #myRegisterForm="ngForm" (ngSubmit)="onsubmit(myRegisterForm)">
+        <div class="mb-3">
+            <label>Name</label>
+            <input type="text" class="form-control" aria-label="Name" name="name" [(ngModel)]="myUser.name" #name="ngModel" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Email</label>
+            <input type="email" class="form-control" aria-label="Email" name="email" [(ngModel)]="myUser.email" #email="ngModel" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Password</label>
+            <input type="password" class="form-control" aria-label="Password" name="password" [(ngModel)]="myUser.password" #password="ngModel" required>
+        </div>
+
+        <button class="btn btn-primary" [disabled]="myRegisterForm.invalid">
+            Register
+        </button>
+    </form>
+</div>
