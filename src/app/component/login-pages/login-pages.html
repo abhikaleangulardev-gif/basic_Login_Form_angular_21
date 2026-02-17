@@ -1,1 +1,32 @@
-<p>login-pages works!</p>
+<div class="container">
+    <h2>Login Form</h2>
+
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+
+        <!-- Email -->
+        <div class="mb-3">
+            <label>Email</label>
+            <input type="email" email class="form-control" aria-label="email" name="email" [(ngModel)]="myUserLogin.email" #email='ngModel' required>
+
+            <small *ngIf="email.invalid && email.touched">
+                Enter valid email
+            </small>
+        </div>
+
+        <!-- Password -->
+        <div class="mb-3">
+            <label>Password</label>
+            <input type="password" minlength="6" class="form-control" aria-label="password" name="password" [(ngModel)]="myUserLogin.password" #password='ngModel' required>
+
+            <small *ngIf="password.invalid && password.touched">
+                Password must be at least 6 characters
+            </small>
+        </div>
+
+        <!-- Button -->
+        <button type="submit" >
+            Login
+        </button>
+
+    </form>
+</div>
